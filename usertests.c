@@ -1416,6 +1416,9 @@ sbrktest(void)
 {
   int fds[2], pid, pids[10], ppid;
   char *a, *b, *c, *lastaddr, *oldbrk, *p, scratch;
+  //char *a, *b, *c, *oldbrk, *p, scratch;
+  //int ninetyNine = 99;
+  //int *lastaddr = &ninetyNine;
   uint amt;
 
   printf(stdout, "sbrk test\n");
@@ -1458,8 +1461,9 @@ sbrktest(void)
     exit();
   }
   lastaddr = (char*) (BIG-1);
+  #pragma GCC diagnostic ignored "-Wstringop-overflow"
   *lastaddr = 99;
-
+  #pragma GCC diagnostic pop
   // can one de-allocate?
   a = sbrk(0);
   c = sbrk(-4096);
