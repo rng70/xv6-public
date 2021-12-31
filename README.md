@@ -1,28 +1,28 @@
 # xv6-rng70
 This is modified version of official xv6-public version. As it was stated that "The main purpose of xv6 is as a teaching operating system for MIT's 6.S081, so we are more interested in simplifications and clarifications than new features" so no PR will be made through this fork.
 
-# Installation
+# Installation 
 This version is slightly modified and tested on
-    OS: Garuda Linux
-    Kernel: 5.15.12-zen1-1-zen
-    GCC/G++: 11.1.0
 
-    this version of xv6 is modified for two cirtical cases.
+*   OS: Garuda Linux
+*   Kernel: 5.15.12-zen1-1-zen
+*   GCC/G++: 11.1.0
 
-    **Case 1: make qemu "error: writing 1 byte into a region of size 0"**
-    two lines added before and after ***line 1461: *lastaddr = 99; in usertests.c***
+***Case 1: make qemu "error: writing 1 byte into a region of size 0"***
 
-    ```#pragma GCC diagnostic ignored "-Wstringop-overflow"
-       *lastaddr = 99;
-       #pragma GCC diagnostic pop
-    ```
+​	two lines added before and after ***line 1461: *lastaddr = 99; in usertests.c***
 
-    **Case 2: qemu hangs on "Booting from hard disk..."**
-    this problem occurs specially on arch linux though it is quite common for other distros also. See PR[#155](https://github.com/mit-pdos/xv6-public/pull/155)
-    for this problem Makefile was slightly modified.
+```c
+#pragma GCC diagnostic ignored "-Wstringop-overflow"
+*lastaddr = 99;
+#pragma GCC diagnostic pop
+```
 
+***Case 2: qemu hangs on "Booting from hard disk..."***
 
+​	this problem occurs specially on arch linux though it is quite common for other distros also. See PR[#155](https://github.com/mit-pdos/xv6-public/pull/155). to solve this problem Makefile was slightly modified.
 
+## official statement
 NOTE: we have stopped maintaining the x86 version of xv6, and switched
 our efforts to the RISC-V version
 (https://github.com/mit-pdos/xv6-riscv.git)
