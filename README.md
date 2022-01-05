@@ -37,7 +37,7 @@ This version is slightly modified and tested on
 
     *   clone this repository 
 
-        *   `git clone git@github.com:rng70/xv6-public.git`
+        *   `git clone https://github.com/rng70/xv6-public.git`
 
     *   go to the cloned repo and build and run
 
