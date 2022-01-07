@@ -57,7 +57,8 @@ otherwise a new qemu terminal will be opened
 
 ---
 
- 
+*   [Modularize System Calls](https://github.com/rng70/easy-xv6#modularize-syscalls)  [file change](https://github.com/rng70/explore-xv6/tree/main/file-changed--modularize-syscall)
+*   [Userlevel Indicator change](https://github.com/rng70/easy-xv6#modify-userlevel-indicator)  [file change](https://github.com/rng70/explore-xv6/tree/main/file-changed--userlevel-indicator)
 
 
 
